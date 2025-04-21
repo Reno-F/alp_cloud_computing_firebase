@@ -43,10 +43,10 @@ class FirebaseService
             }
 
             $factory = (new Factory)
-                ->withServiceAccountCredentials(json_decode(env('FIREBASE_CREDENTIALS'), true))
-                ->withDatabaseUri(env('FIREBASE_DATABASE_URL'));
-                // ->withServiceAccount($credentialsPath)
-                // ->withDatabaseUri('https://cloud-computing-alp-default-rtdb.firebaseio.com');
+                // ->withServiceAccountCredentials(json_decode(env('FIREBASE_CREDENTIALS'), true))
+                // ->withDatabaseUri(env('FIREBASE_DATABASE_URL'));
+                ->withServiceAccount($credentialsPath)
+                ->withDatabaseUri('https://cloud-computing-alp-default-rtdb.firebaseio.com');
 
             $this->auth = $factory->createAuth();
             $this->database = $factory->createDatabase();
@@ -169,3 +169,4 @@ public function getReviews()
 
 
 }
+
